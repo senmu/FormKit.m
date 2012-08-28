@@ -168,7 +168,7 @@
                FKFormAttributeMappingTypeTime == attributeMapping.type ||
                FKFormAttributeMappingTypeDate == attributeMapping.type) {
         
-        [self showDatePickerWithAttributeMapping:attributeMapping];
+        [self showDatePickerWithAttributeMapping:attributeMapping withIndexPath:indexPath];
         
     } else if (FKFormAttributeMappingTypeCustomCell == attributeMapping.type) {
         if (nil != attributeMapping.cellSelectionBlock) {
@@ -431,7 +431,7 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)showDatePickerWithAttributeMapping:(FKFormAttributeMapping *)attributeMapping {
+- (void)showDatePickerWithAttributeMapping:(FKFormAttributeMapping *)attributeMapping withOrigin:(UIView *)origin {
     ActionSheetDatePicker *actionSheetPicker;
     UIDatePickerMode datePickerMode = UIDatePickerModeDate;
     
@@ -451,9 +451,17 @@
                                                              [weakRef reloadRowWithAttributeMapping:formAttributeMapping];
                                                          }
                                                        cancelBlock:nil
-                                                            origin:self.tableView];
+                                                            origin:origin];
     
     actionSheetPicker.formAttributeMapping = attributeMapping;
+}
+
+- (void)showDatePickerWithAttributeMapping:(FKFormAttributeMapping *)attributeMapping {
+    [self showDatePickerWithAttributeMapping:attributeMapping withOrigin:self.tableView];
+}
+
+- (void)showDatePickerWithAttributeMapping:(FKFormAttributeMapping *)attributeMapping withIndexPath:(NSIndexPath *)indexPath {
+    [self showDatePickerWithAttributeMapping:attributeMapping withOrigin:[[self.tableView cellForRowAtIndexPath:indexPath] contentView]];
 }
 
 

@@ -267,7 +267,7 @@
 #pragma mark - Popovers and ActionSheets
 
 - (void)presentPickerForView:(UIView *)aView {
-    self.presentFromRect = aView.frame;
+    //self.presentFromRect = aView.frame;
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
         [self configureAndPresentPopoverForView:aView];
