@@ -62,6 +62,10 @@
 @synthesize longTextControllerClass = _longTextControllerClass;
 @synthesize didChangeValueBlock = _didChangeValueBlock;
 @synthesize configureCellsBlock = _configureCellsBlock;
+@synthesize validationNormalColor = _validationNormalColor;
+@synthesize validationErrorColor = _validationErrorColor;
+@synthesize viewOrigin = _viewOrigin;
+@synthesize invalidAttributes = _invalidAttributes;
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

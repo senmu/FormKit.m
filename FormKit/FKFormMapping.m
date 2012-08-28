@@ -58,6 +58,7 @@
 @synthesize sliderFieldClass = _sliderFieldClass;
 @synthesize buttonFieldClass = _buttonFieldClass;
 @synthesize attributeMappings = _attributeMappings;
+@synthesize attributeValidations = _attributeValidations;
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
