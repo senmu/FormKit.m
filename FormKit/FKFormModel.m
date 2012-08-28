@@ -356,7 +356,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [[[[UIApplication sharedApplication] keyWindow] fk_findFirstResponder] resignFirstResponder];
+    [[self.tableView.superview fk_findFirstResponder] resignFirstResponder];
 }
 
 
