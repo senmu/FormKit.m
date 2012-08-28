@@ -70,9 +70,12 @@
     
     if (FKFormAttributeMappingTypeFloat == type) {
         self.keyboardType = UIKeyboardTypeDecimalPad;
-    } else if (FKFormAttributeMappingTypeInteger == type) {
+    } else if (FKFormAttributeMappingTypeInteger == type || FKFormAttributeMappingTypeNumeric == type) {
         self.keyboardType = UIKeyboardTypeNumberPad;
-        
+    } else if (FKFormAttributeMappingTypePhone == type) {
+        self.keyboardType = UIKeyboardTypePhonePad;
+    } else if (FKFormAttributeMappingTypeEmail == type) {
+        self.keyboardType = UIKeyboardTypeEmailAddress;
     } else {
         self.keyboardType = UIKeyboardTypeDefault;
     }

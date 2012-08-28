@@ -302,7 +302,14 @@
         [[(FKTextField *)field textField] setKeyboardType:attributeMapping.keyboardType];
         [[(FKTextField *)field textField] setInputAccessoryView:[self createKeyboardToolbar]];
 
-    } else if (type == FKFormAttributeMappingTypeFloat) {
+    } else if (type == FKFormAttributeMappingTypeNumeric || type == FKFormAttributeMappingTypePhone || type == FKFormAttributeMappingTypeEmail) {
+        field = [self cellForClass:_formMapping.textFieldClass];
+        [[(FKTextField *)field textField] setDelegate:self];
+        [[(FKTextField *)field textField] setFormAttributeMapping:attributeMapping];
+        [[(FKTextField *)field textField] setKeyboardType:attributeMapping.keyboardType];
+        [[(FKTextField *)field textField] setInputAccessoryView:[self createKeyboardToolbar]];
+        
+    } else if (type == FKFormAttributeMappingTypeFloat) {    
         field = [self cellForClass:_formMapping.floatFieldClass];
         [[(FKFloatField *)field textField] setDelegate:self];
         [[(FKFloatField *)field textField] setFormAttributeMapping:attributeMapping];
