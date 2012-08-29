@@ -18,6 +18,7 @@
 #import "FKTextViewField.h"
 
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -31,9 +32,9 @@
     if (self) {
         _textView = [[UITextView alloc] init];
         [_textView setBackgroundColor:[UIColor clearColor]];
-        [_textView setFont:[UIFont systemFontOfSize:18.0]];
+        [_textView setFont:[UIFont systemFontOfSize:16.0]];
         [self.contentView addSubview:self.textView];
-        [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 200)];
+        [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, kTextViewCellHeight)];
     }
     return self;
 }

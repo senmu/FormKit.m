@@ -18,6 +18,8 @@
 #import <UIKit/UIKit.h>
 #import "PrettyKit.h"
 
+#define kTextViewCellHeight 130.0
+
 @interface FKSimpleField : PrettyTableViewCell
 
 @end

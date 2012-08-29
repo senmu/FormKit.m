@@ -526,7 +526,7 @@
 - (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     FKFormAttributeMapping *attributeMapping = [self attributeMappingAtIndexPath:indexPath];
     if (attributeMapping.type == FKFormAttributeMappingTypeTextView) {
-        return 200.0;
+        return kTextViewCellHeight;
     }
     return attributeMapping.rowHeight > 0 ? attributeMapping.rowHeight : self.tableView.rowHeight;
 }
