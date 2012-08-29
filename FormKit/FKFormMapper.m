@@ -26,6 +26,8 @@
 #import "UITableViewCell+FormKit.h"
 #import "FKFormAttributeValidation.h"
 
+#import "PrettyKit.h"
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -133,7 +135,9 @@
 - (UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FKFormAttributeMapping *attributeMapping = [self attributeMappingAtIndexPath:indexPath];
     Class sourceClass = [self classFromSourcePropertyAtIndexPath:indexPath keyPath:attributeMapping.attribute];
-    UITableViewCell *field = [self cellWithAttributeMapping:attributeMapping sourceClass:sourceClass];
+    PrettyTableViewCell *field = [self cellWithAttributeMapping:attributeMapping sourceClass:sourceClass];
+    
+    [field prepareForTableView:self.tableView indexPath:indexPath];
     
     if (FKFormAttributeMappingTypeCustomCell == attributeMapping.type) {
         if (nil != attributeMapping.willDisplayCellBlock) {
@@ -144,10 +148,12 @@
         id value = [self valueForAttributeMapping:attributeMapping];
         [self mapAttributeMapping:attributeMapping value:value withField:field];
         field.textLabel.text = attributeMapping.title;
-        if ([self.formModel.invalidAttributes containsObject:attributeMapping.attribute]) {
-            field.textLabel.textColor = self.formModel.validationErrorColor;
-        } else {
-            field.textLabel.textColor = self.formModel.validationNormalColor;
+        if (![field.reuseIdentifier isEqualToString:@"FKSaveButtonField"]) {
+            if ([self.formModel.invalidAttributes containsObject:attributeMapping.attribute]) {
+                field.textLabel.textColor = self.formModel.validationErrorColor;
+            } else {
+                field.textLabel.textColor = self.formModel.validationNormalColor;
+            }
         }
     }
     

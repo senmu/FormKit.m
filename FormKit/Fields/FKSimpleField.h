@@ -16,7 +16,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PrettyKit.h"
 
-@interface FKSimpleField : UITableViewCell
+@interface FKSimpleField : PrettyTableViewCell
 
 @end
