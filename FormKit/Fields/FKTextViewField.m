@@ -25,13 +25,15 @@
 
 @synthesize textView = _textView;
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         _textView = [[UITextView alloc] init];
+        [_textView setBackgroundColor:[UIColor clearColor]];
+        [_textView setFont:[UIFont systemFontOfSize:18.0]];
         [self.contentView addSubview:self.textView];
+        [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 200)];
     }
     return self;
 }
@@ -43,6 +45,21 @@
     
     self.textView.text = nil;
     self.textView.delegate = nil;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    self.textLabel.frame = CGRectMake(self.textLabel.frame.origin.x,10,self.textLabel.frame.size.width,self.textLabel.frame.size.height);
+    self.textView.frame = CGRectMake(2, self.textLabel.frame.origin.y + self.textLabel.frame.size.height,
+                                      self.contentView.frame.size.width - 4, self.contentView.frame.size.height - self.textLabel.frame.size.height - 10);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
++ (UITableViewCellStyle)cellStyle {
+    return UITableViewCellStyleValue1;
 }
 
 

@@ -48,6 +48,7 @@
 @synthesize fieldsOrder = _fieldsOrder;
 @synthesize saveAttribute = _saveAttribute;
 @synthesize textFieldClass = _textFieldClass;
+@synthesize textViewClass = _textViewClass;
 @synthesize floatFieldClass = _floatFieldClass;
 @synthesize integerFieldClass = _integerFieldClass;
 @synthesize labelFieldClass = _labelFieldClass;
@@ -70,6 +71,7 @@
         _fieldsOrder = [[NSMutableArray alloc] init];
         _attributeValidations = [[NSMutableDictionary alloc] init];
         _textFieldClass = [FKTextField class];
+        _textViewClass = [FKTextViewField class];
         _floatFieldClass = [FKFloatField class];
         _integerFieldClass = [FKIntegerField class];
         _labelFieldClass = [FKLabelField class];

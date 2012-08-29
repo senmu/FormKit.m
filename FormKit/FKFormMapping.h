@@ -34,6 +34,7 @@
 @property (nonatomic, retain) NSArray *fieldsOrder;
 @property (nonatomic, retain) FKFormAttributeMapping *saveAttribute;
 @property (nonatomic, assign) Class textFieldClass;
+@property (nonatomic, assign) Class textViewClass;
 @property (nonatomic, assign) Class floatFieldClass;
 @property (nonatomic, assign) Class integerFieldClass;
 @property (nonatomic, assign) Class labelFieldClass;

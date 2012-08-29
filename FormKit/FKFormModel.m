@@ -163,7 +163,11 @@
     } else if (FKFormAttributeMappingTypeText == attributeMapping.type) {
         FKTextField *textFieldCell = (FKTextField *)[self cellForRowAtIndexPath:indexPath];
         [textFieldCell.textField becomeFirstResponder];
-        
+    
+    } else if (FKFormAttributeMappingTypeTextView == attributeMapping.type) {
+        FKTextViewField *textViewCell = (FKTextViewField *)[self cellForRowAtIndexPath:indexPath];
+        [textViewCell.textView becomeFirstResponder];
+    
     } else if (FKFormAttributeMappingTypeDateTime == attributeMapping.type ||
                FKFormAttributeMappingTypeTime == attributeMapping.type ||
                FKFormAttributeMappingTypeDate == attributeMapping.type) {

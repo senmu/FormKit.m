@@ -283,6 +283,9 @@
         field.textLabel.text = attributeMapping.title;
         field.accessoryType = attributeMapping.accesoryType;
         
+    } else if ([field isKindOfClass:[FKTextViewField class]]) {
+        [(FKTextViewField *)field textView].text = convertedValue;
+        
     } else {
         if (![convertedValue isKindOfClass:[NSString class]]) {
             convertedValue = [convertedValue description];
@@ -307,6 +310,13 @@
         [[(FKTextField *)field textField] setFormAttributeMapping:attributeMapping];
         [[(FKTextField *)field textField] setKeyboardType:attributeMapping.keyboardType];
         [[(FKTextField *)field textField] setInputAccessoryView:[self createKeyboardToolbar]];
+        
+    } else if (type == FKFormAttributeMappingTypeTextView) {   
+        field = [self cellForClass:_formMapping.textViewClass];
+        [[(FKTextViewField *)field textView] setDelegate:self];
+        [[(FKTextViewField *)field textView] setFormAttributeMapping:attributeMapping];
+        [[(FKTextViewField *)field textView] setKeyboardType:attributeMapping.keyboardType];
+        [[(FKTextViewField *)field textView] setInputAccessoryView:[self createKeyboardToolbar]];
 
     } else if (type == FKFormAttributeMappingTypeNumeric || type == FKFormAttributeMappingTypePhone || type == FKFormAttributeMappingTypeEmail) {
         field = [self cellForClass:_formMapping.textFieldClass];
@@ -515,6 +525,9 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     FKFormAttributeMapping *attributeMapping = [self attributeMappingAtIndexPath:indexPath];
+    if (attributeMapping.type == FKFormAttributeMappingTypeTextView) {
+        return 200.0;
+    }
     return attributeMapping.rowHeight > 0 ? attributeMapping.rowHeight : self.tableView.rowHeight;
 }
 
