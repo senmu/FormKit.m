@@ -17,7 +17,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "FKValueViewField.h"
+#import "FKSimpleField.h"
 
 @interface FKTextViewField : FKSimpleField {
     UITextView *_textView;

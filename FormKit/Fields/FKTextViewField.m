@@ -31,8 +31,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         _textView = [[UITextView alloc] init];
-        [_textView setBackgroundColor:[UIColor clearColor]];
-        [_textView setFont:[UIFont systemFontOfSize:16.0]];
+        [self.textView setBackgroundColor:[UIColor clearColor]];
+        [self.textView setFont:[UIFont systemFontOfSize:16.0]];
         [self.contentView addSubview:self.textView];
         [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, kTextViewCellHeight)];
     }
@@ -44,7 +44,6 @@
 - (void)prepareForReuse {
     [super prepareForReuse];
     
-    self.textView.text = nil;
     self.textView.delegate = nil;
 }
 
