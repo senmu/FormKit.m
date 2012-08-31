@@ -28,6 +28,8 @@
 #import "UIView+FormKit.h"
 #import "BWLongTextViewController.h"
 
+#import "UITableView+Animations.h"
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -201,7 +203,11 @@
                                                          object:self.object
                                                       formModel:self];
     
-    [self.tableView reloadData];
+    if (object == nil) {
+        [self.tableView reloadData];
+    } else {
+        [self.tableView reloadData:YES];
+    }
 }
 
 
