@@ -40,7 +40,8 @@ typedef enum {
     FKFormAttributeMappingTypeNumeric = 17,
     FKFormAttributeMappingTypePhone = 18,
     FKFormAttributeMappingTypeEmail = 19,
-    FKFormAttributeMappingTypeTextView = 20
+    FKFormAttributeMappingTypeTextView = 20,
+    FKFormAttributeMappingTypeTextCap = 21
 } FKFormAttributeMappingType;
 
 @interface FKFormAttributeMapping : NSObject

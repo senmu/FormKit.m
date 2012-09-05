@@ -304,12 +304,17 @@
     FKSimpleField *field = nil;
     FKFormAttributeMappingType type = attributeMapping.type;
 
-    if (type == FKFormAttributeMappingTypeText) {
+    if (type == FKFormAttributeMappingTypeText || type == FKFormAttributeMappingTypeTextCap) {
         field = [self cellForClass:_formMapping.textFieldClass];
         [[(FKTextField *)field textField] setDelegate:self];
         [[(FKTextField *)field textField] setFormAttributeMapping:attributeMapping];
         [[(FKTextField *)field textField] setKeyboardType:attributeMapping.keyboardType];
         [[(FKTextField *)field textField] setInputAccessoryView:[self createKeyboardToolbar]];
+        
+        if (type == FKFormAttributeMappingTypeTextCap) {
+            [[(FKTextField *)field textField] setAutocapitalizationType:UITextAutocapitalizationTypeAllCharacters];
+            [[(FKTextField *)field textField] setAutocorrectionType:UITextAutocorrectionTypeNo];
+        }
         
     } else if (type == FKFormAttributeMappingTypeTextView) {   
         field = [self cellForClass:_formMapping.textViewClass];
@@ -323,6 +328,7 @@
         [[(FKTextField *)field textField] setDelegate:self];
         [[(FKTextField *)field textField] setFormAttributeMapping:attributeMapping];
         [[(FKTextField *)field textField] setKeyboardType:attributeMapping.keyboardType];
+        [[(FKTextField *)field textField] setAutocapitalizationType:UITextAutocapitalizationTypeNone];
         [[(FKTextField *)field textField] setInputAccessoryView:[self createKeyboardToolbar]];
         
     } else if (type == FKFormAttributeMappingTypeFloat) {    
@@ -347,6 +353,7 @@
         [[(FKPasswordTextField *)field textField] setDelegate:self];
         [[(FKPasswordTextField *)field textField] setFormAttributeMapping:attributeMapping];
         [[(FKPasswordTextField *)field textField] setKeyboardType:attributeMapping.keyboardType];
+        [[(FKPasswordTextField *)field textField] setAutocapitalizationType:UITextAutocapitalizationTypeNone];
         [[(FKPasswordTextField *)field textField] setInputAccessoryView:[self createKeyboardToolbar]];
 
     } else if (type == FKFormAttributeMappingTypeBoolean) {
