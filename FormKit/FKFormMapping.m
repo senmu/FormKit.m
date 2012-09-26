@@ -56,6 +56,7 @@
 @synthesize switchFieldClass = _switchFieldClass;
 @synthesize saveButtonFieldClass = _saveButtonFieldClass;
 @synthesize disclosureIndicatorAccessoryField = _disclosureIndicatorAccessoryField;
+@synthesize hiddenDisclosureIndicatorAccessoryField = _hiddenDisclosureIndicatorAccessoryField;
 @synthesize sliderFieldClass = _sliderFieldClass;
 @synthesize buttonFieldClass = _buttonFieldClass;
 @synthesize attributeMappings = _attributeMappings;
@@ -79,6 +80,7 @@
         _switchFieldClass = [FKSwitchField class];
         _saveButtonFieldClass = [FKSaveButtonField class];
         _disclosureIndicatorAccessoryField = [FKDisclosureIndicatorAccessoryField class];
+        _hiddenDisclosureIndicatorAccessoryField = [FKHiddenDisclosureIndicatorAccessoryField class];
         _sliderFieldClass = [FKSliderField class];
         _buttonFieldClass = [FKButtonField class];
     }

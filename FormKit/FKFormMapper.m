@@ -375,7 +375,8 @@
         field = [self cellForClass:_formMapping.disclosureIndicatorAccessoryField];
         
     } else if (type == FKFormAttributeMappingTypeBigText) {
-        field = [self cellForClass:_formMapping.disclosureIndicatorAccessoryField];
+        //field = [self cellForClass:_formMapping.disclosureIndicatorAccessoryField];
+        field = [self cellForClass:_formMapping.hiddenDisclosureIndicatorAccessoryField];
         
     } else if (type == FKFormAttributeMappingTypeCustomCell) {
         field = [self cellForClass:attributeMapping.customCell];
